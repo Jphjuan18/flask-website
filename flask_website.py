@@ -27,8 +27,13 @@ def get_meme():
 
 def index():
     meme_pic, subreddit = get_meme()
+    return render_template("index.html", meme_pic=meme_pic, subreddit=subreddit)
+
+@app.route("/cats.html")
+
+def cats():
     cat_pic = get_cat()
-    return render_template("index.html", meme_pic=meme_pic, subreddit=subreddit, cat_pic=cat_pic)
+    return render_template("cats.html", cat_pic=cat_pic)
 
 app.run(host="0.0.0.0", port=80)
 
